@@ -1,2 +1,1 @@
-
-print "hello owlrd"
+print("hello owlrd")
