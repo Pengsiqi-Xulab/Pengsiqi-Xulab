@@ -8,6 +8,8 @@ void UnionAB(SeqList *A, SeqList B);
 
 void UnionABElem(SeqList LA, SeqList LB, SeqList *LC);
 
+void DelElem(SeqList *A, SeqList B);
+
 int main() {
     int i, flag;
     DataType e;
@@ -73,6 +75,20 @@ int main() {
             printf("%4d", e);
     }
     printf("\n");
+
+    printf("删除LA中和LB重复的元素。\n");
+
+    DelElem(&LA, LB);
+
+    printf("新的顺序表LA中的元素:\n");
+    for (i = 0; i <= LA.length; i++) {
+        flag = GetElem(LA, i, &e);
+
+        if (flag == 1)
+            printf("%4d", e);
+    }
+    printf("\n");
+
     return 0;
 }
 
@@ -108,6 +124,22 @@ void UnionABElem(SeqList LA, SeqList LB, SeqList *LC) {
 
         if (!pos)
             InsertList(LC, LC->length+1, e);
+        }
+    }
+}
+
+
+void DelElem(SeqList *A, SeqList B) {
+    int i, flag, pos;
+    DataType e;
+    for (i =1; i <= B.length; i++) {
+        flag = GetElem(B, i, &e);
+
+        if (flag == 1) {
+            pos = LocateElem(*A, e);
+
+            if (pos > 0)
+                DeletList(A, pos);
         }
     }
 }

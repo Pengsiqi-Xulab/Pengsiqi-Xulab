@@ -58,7 +58,7 @@ int DeletList(SeqList *L, int i) {
     if (L->length <= 0) {
         printf("顺序表已空，无法删除。\n");
         return 0;
-    } else if (i < 1 || i >= L->length) {
+    } else if (i < 1 || i > L->length) {
         printf("删除的位置不合法。\n");
         return -1;
     } else {
