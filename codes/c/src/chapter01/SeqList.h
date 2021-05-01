@@ -80,5 +80,16 @@ void ClearList(SeqList *L) {
 }
 
 
+void ListPrint(SeqList A) {
+    int flag;
+    DataType e;
+
+    for (int i = 1; i <= A.length; i++) {
+        flag = GetElem(A, i, &e);
+        if (flag == 1)
+            printf("%4d", e);
+    }
+    printf("\n");
+}
 
 

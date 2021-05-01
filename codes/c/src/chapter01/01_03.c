@@ -11,8 +11,7 @@ void UnionABElem(SeqList LA, SeqList LB, SeqList *LC);
 void DelElem(SeqList *A, SeqList B);
 
 int main() {
-    int i, flag;
-    DataType e;
+    int i;
     DataType a[] = {12,34,56,34,87,43,23};
     DataType b[] = {12,333,444,555,666,777,23};
     SeqList LA, LB, LC;
@@ -35,59 +34,29 @@ int main() {
     }
 
     printf("顺序表LA中的元素:\n");
-    for (i = 1; i <= LA.length; i++) {
-        flag = GetElem(LA, i, &e);
-
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(LA);
 
 
     printf("顺序表LB中的元素:\n");
-    for (i = 1; i <= LB.length; i++) {
-        flag = GetElem(LB, i, &e);
-
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(LB);
 
     UnionABElem(LA, LB, &LC);
 
     printf("顺序表LA,LB的差集合：LC中的元素:\n");
-    for (i = 0; i <= LC.length; i++) {
-        flag = GetElem(LC, i, &e);
-
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(LC);
 
     printf("将LB中不在LA中的元素插入LA中。\n");
     UnionAB(&LA, LB);
 
     printf("新的顺序表LA中的元素:\n");
-    for (i = 0; i <= LA.length; i++) {
-        flag = GetElem(LA, i, &e);
-
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(LA);
 
     printf("删除LA中和LB重复的元素。\n");
 
     DelElem(&LA, LB);
 
     printf("新的顺序表LA中的元素:\n");
-    for (i = 0; i <= LA.length; i++) {
-        flag = GetElem(LA, i, &e);
-
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(LA);
 
     return 0;
 }

@@ -8,10 +8,8 @@ void MergeList(SeqList A, SeqList B, SeqList *C);
 
 
 int main() {
-    int flag;
     DataType a[] = {3,5,6,7,11,15,23,45};
     DataType b[] = {1,4,7,11,15,19,21,25,34,46,57,68};
-    DataType e;
     SeqList A, B, C;
     InitList(&A);
     InitList(&B);
@@ -32,30 +30,15 @@ int main() {
     }
 
     printf("顺序表A中的元素是：\n");
-    for (int i = 1; i <= A.length; i++) {
-        flag = GetElem(A, i, &e);
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(A);
 
     printf("顺序表B中的元素是：\n");
-    for (int i = 1; i <= B.length; i++) {
-        flag = GetElem(B, i, &e);
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(B);
 
     MergeList(A, B, &C);
 
     printf("合并后顺序表C中的元素是：\n");
-    for (int i = 1; i <= C.length; i++) {
-        flag = GetElem(C, i, &e);
-        if (flag == 1)
-            printf("%4d", e);
-    }
-    printf("\n");
+    ListPrint(C);
 }
 
 
